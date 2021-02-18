@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Issue's Statistic</title>
+    <meta name="decorator" content="atl.general">
+</head>
+<body class="page-type-admin">
+<div class="content-container">
+    <div class="content-body">
+        #if($mostFrequentWordsAndTheirFrequency.size()==0)
+        <h1>You've Got <span style="color:red">NO</span> Projects!</h1>
+        #end
+        #if ($mostFrequentWordsAndTheirFrequency.size() > 0)
+            <h1>Your statistic for $numberOfIssues issues:</h1>
+            <div class="issues">
+                <table class="aui">
+                    <thead>
+                    <tr>
+                        <th>Word</th>
+                        <th>Frequency</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        #foreach( $entry in $mostFrequentWordsAndTheirFrequency )
+                        <tr>
+                            <td>$entry.getKey()</td>
+                            <td>$entry.getValue()</td>
+                        </tr>
+                        #end
+                    </tbody>
+                </table>
+            </div>
+        #end
+    </div>
+</div>
+</body>
+</html>

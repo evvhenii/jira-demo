@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
+  <plugin-info> 
+    <description>${project.description}</description>  
+    <version>${project.version}</version>  
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <param name="plugin-icon">images/pluginIcon.png</param>  
+    <param name="plugin-logo">images/pluginLogo.png</param> 
+  </plugin-info>  
+  <!-- add our i18n resource -->  
+  <resource type="i18n" name="i18n" location="most-mentioned-words"/>  
+  <!-- add our web resources -->  
+  <web-resource key="most-mentioned-words-resources" name="most-mentioned-words Web Resources"> 
+    <dependency>com.atlassian.auiplugin:ajs</dependency>  
+    <resource type="download" name="most-mentioned-words.css" location="/css/most-mentioned-words.css"/>  
+    <resource type="download" name="most-mentioned-words.js" location="/js/most-mentioned-words.js"/>  
+    <resource type="download" name="images/" location="/images"/>  
+    <context>most-mentioned-words</context> 
+  </web-resource>  
+  <servlet name="Project Issues Statistic" i18n-name-key="project-issues-statistic.name" key="project-issues-statistic" class="com.example.demo.servlet.ProjectIssuesStatistic"> 
+    <description key="project-issues-statistic.description">The Project Issues Statistic Plugin</description>  
+    <url-pattern>/projectissuesstatistic</url-pattern> 
+  </servlet>
+</atlassian-plugin>
